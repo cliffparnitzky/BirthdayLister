@@ -30,6 +30,12 @@ Dependency
 - This extension is dependent on the following extensions: [[associategroups]](http://contao.org/de/extension-list/view/associategroups.de.html)
 
 
+Screenshots
+-----------
+
+![Screenshot: System settings](https://raw.github.com/cliffparnitzky/BirthdayLister/master/screenshot.jpg)
+
+
 CSS classes
 -----------
 
