@@ -30,11 +30,11 @@
 /**
  * Define name and tooltip frontend modules / content elements
  */
-$GLOBALS['TL_LANG']['FMD']['birthdayLister'] = array('Geburtstagslister', 'Stellt ein Modul zur Verfügung, dass eine Liste von Geburtstagen der Mitglieder ausgibt.');
+$GLOBALS['TL_LANG']['FMD']['birthdayLister'] = array('Geburtstagslister', 'Stellt ein Modul zur Ausgabe einer Liste von Geburtstagen der Mitglieder zur Verfügung.');
 
 /**
  * Define name and tooltip for preferences (inactive modules)
  */
-$GLOBALS['TL_LANG']['MOD']['BirthdayLister'] = array('Geburtstagslister', 'Stellt ein Modul zur Verfügung, dass eine Liste von Geburtstagen der Mitglieder ausgibt.');
+$GLOBALS['TL_LANG']['MOD']['BirthdayLister'] = array('Geburtstagslister', 'Stellt ein Modul zur Ausgabe einer Liste von Geburtstagen der Mitglieder zur Verfügung.');
 
 ?>
