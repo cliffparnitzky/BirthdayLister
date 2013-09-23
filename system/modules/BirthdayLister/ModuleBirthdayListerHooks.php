@@ -58,9 +58,10 @@ class ModuleBirthdayListerHooks
 	 */
 	public function sortBirthdayChildrenInCustomPeriod($arrBirthdayChildren, $modulConfig)
 	{
-		$startDayOfYear = $this->getStartDayOfYear($modulConfig);
-		if ($modulConfig->birthdayListPeriod == 'custom_period' && $modulConfig->birthdayListPeriodCustomCrossYearLimits/* && $startDayOfYear < 0)*/)
+		if ($modulConfig->birthdayListPeriod == 'custom_period' && $modulConfig->birthdayListPeriodCustomCrossYearLimits)
 		{
+			$startDayOfYear = $this->getStartDayOfYear($modulConfig);
+			
 			$sort_col = array();
 			foreach ($arrBirthdayChildren as $key=> $birthdayChild)
 			{
