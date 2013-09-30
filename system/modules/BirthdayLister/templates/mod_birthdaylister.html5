@@ -9,7 +9,30 @@
 <?php if ($this->hasBirthdays): ?>
 	<ul>
 <?php foreach ($this->birthdayChildren as $i=>$birthdayChild) : ?>
-		<li<?php if (strlen($birthdayChild['class']) > 0) : ?> class="<?php echo $birthdayChild['class']; ?>"<?php endif; ?>><span class="birthday"><?php echo $birthdayChild['birthday']; ?> : </span><span class="name"><?php echo $birthdayChild['firstname']; ?> <?php echo $birthdayChild['lastname']; ?></span><span class="age"> (<?php echo $birthdayChild['age']; ?>)</span></li>
+<?php
+$arrClass = array();
+if ($i == 0)
+{
+	$arrClass[] = 'first';
+}
+if (($i + 1) == count($this->birthdayChildren))
+{
+	$arrClass[] = 'last';
+}
+if($i % 2 == 0)
+{
+	$arrClass[] = 'odd';
+}
+else
+{
+	$arrClass[] = 'even';
+}
+if (strlen($birthdayChild['class']) > 0)
+{
+	$arrClass[] = $birthdayChild['class'];
+}
+?>
+		<li class="<?php echo implode(' ', $arrClass); ?>"><span class="birthday"><?php echo $birthdayChild['birthday']; ?> : </span><span class="name"><?php echo $birthdayChild['firstname']; ?> <?php echo $birthdayChild['lastname']; ?></span><span class="age"> (<?php echo $birthdayChild['age']; ?>)</span></li>
 <?php endforeach; ?> 
 	</ul>
 <?php else: ?>
