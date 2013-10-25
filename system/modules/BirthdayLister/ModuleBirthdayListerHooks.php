@@ -46,7 +46,7 @@ class ModuleBirthdayListerHooks
 		foreach ($arrBirthdayChildren as $key=> $birthdayChild)
 		{
 			$birthday = mktime(0, 0, 0, date("m", $birthdayChild['dateOfBirth']), date("d", $birthdayChild['dateOfBirth']), date("Y"));
-			$sort_col[$key] = date('md', $birthday) . $birthdayChild['age']; 
+			$sort_col[$key] = date('md', $birthday) . $this->getAgeWithLeadingZero($birthdayChild['age']) . $birthdayChild['id']; 
 		}
 		array_multisort($sort_col, SORT_ASC, $arrBirthdayChildren);
 		
@@ -68,12 +68,28 @@ class ModuleBirthdayListerHooks
 				$yearIncrement = (date("z", $birthdayChild['dateOfBirth']) < $startDayOfYear) ? 1 : 0;
 				$nextBirthday = mktime(0, 0, 0, date("m", $birthdayChild['dateOfBirth']), date("d", $birthdayChild['dateOfBirth']), date("Y") + $yearIncrement);
 				$arrBirthdayChildren[$key]['age'] = intval($birthdayChild['age'] + $yearIncrement);
-				$sort_col[$key] = date('Ymd', $nextBirthday) . $birthdayChild['age']; 
+				$sort_col[$key] = date('Ymd', $nextBirthday) . $this->getAgeWithLeadingZero($birthdayChild['age']) . $birthdayChild['id']; 
 			}
 			array_multisort($sort_col, SORT_ASC, $arrBirthdayChildren);
 		}
 		
 		return $arrBirthdayChildren;
+	}
+	
+	/**
+	 * Returns the age with leading zeros.
+	 */
+	private function getAgeWithLeadingZero($age)
+	{
+		if ($age < 10)
+		{
+			return "00" . $age;
+		}
+		else if ($age < 100)
+		{
+			return "0" . $age;
+		}
+		return $age;
 	}
 	
 	/**

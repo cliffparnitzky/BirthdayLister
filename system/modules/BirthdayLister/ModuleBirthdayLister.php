@@ -97,8 +97,7 @@ class ModuleBirthdayLister extends Module
 													  JOIN tl_member_to_group ON tl_member_to_group.member_id = tl_member.id
 													  JOIN tl_member_group ON tl_member_group.id = tl_member_to_group.group_id
 													  WHERE tl_member_to_group.group_id IN (" . $membergroups . ") 
-													  GROUP BY tl_member.id
-													  ORDER BY dateOfBirth");
+													  GROUP BY tl_member.id");
 		}
 		else
 		{
