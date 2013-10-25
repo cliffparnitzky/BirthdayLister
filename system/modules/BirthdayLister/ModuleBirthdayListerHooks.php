@@ -43,10 +43,10 @@ class ModuleBirthdayListerHooks
 	public function sortBirthdayChildren($arrBirthdayChildren, $modulConfig)
 	{
 		$sort_col = array();
-		foreach ($arrBirthdayChildren as $key=> $birthdayChild)
+		foreach ($arrBirthdayChildren as $key => $birthdayChild)
 		{
 			$birthday = mktime(0, 0, 0, date("m", $birthdayChild['dateOfBirth']), date("d", $birthdayChild['dateOfBirth']), date("Y"));
-			$sort_col[$key] = date('md', $birthday) . $this->getAgeWithLeadingZero($birthdayChild['age']) . $birthdayChild['id']; 
+			$sort_col[$key] = date('md', $birthday) . $this->getAgeWithLeadingZero($birthdayChild['age']);
 		}
 		array_multisort($sort_col, SORT_ASC, $arrBirthdayChildren);
 		
@@ -63,12 +63,12 @@ class ModuleBirthdayListerHooks
 			$startDayOfYear = $this->getStartDayOfYear($modulConfig);
 			
 			$sort_col = array();
-			foreach ($arrBirthdayChildren as $key=> $birthdayChild)
+			foreach ($arrBirthdayChildren as $key => $birthdayChild)
 			{
 				$yearIncrement = (date("z", $birthdayChild['dateOfBirth']) < $startDayOfYear) ? 1 : 0;
 				$nextBirthday = mktime(0, 0, 0, date("m", $birthdayChild['dateOfBirth']), date("d", $birthdayChild['dateOfBirth']), date("Y") + $yearIncrement);
 				$arrBirthdayChildren[$key]['age'] = intval($birthdayChild['age'] + $yearIncrement);
-				$sort_col[$key] = date('Ymd', $nextBirthday) . $this->getAgeWithLeadingZero($birthdayChild['age']) . $birthdayChild['id']; 
+				$sort_col[$key] = date('Ymd', $nextBirthday) . $this->getAgeWithLeadingZero($birthdayChild['age']); 
 			}
 			array_multisort($sort_col, SORT_ASC, $arrBirthdayChildren);
 		}
