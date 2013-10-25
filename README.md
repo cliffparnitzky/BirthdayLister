@@ -44,6 +44,8 @@ CSS classes
 - `birthday` : marks the span inside a list item containing the date of birth
 - `name` : marks the span inside a list item containing the name (firstname and lastname)
 - `age` : marks the span inside a list item containing the age
+- `first`, `last` : marks the first and last list item
+- `even`, `odd` : marks each list item as even or odd
 
 
 Hooks
@@ -53,7 +55,7 @@ Hooks
 
 The "birthdayListerModifyBirthdayChildren" hook is triggered for modifying the list of birthday children. So custom sorting is possible or removing of birthday children.
 It passes `$arrBirthdayChildren` (the array of birthday children), `$modulConfig` (the modul configuration to get user definings).
-It an array of birthday children as return value.
+It expects an array of birthday children as return value.
 
 ```
 // config.php
