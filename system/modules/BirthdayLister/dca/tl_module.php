@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
  * @package    BirthdayLister
  * @license    LGPL
@@ -115,9 +115,9 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListTemplate'] = array
  * Class tl_module_BirthdayLister
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright  Leo Feyer 2005-2013
- * @author     Leo Feyer <https://contao.org>
- * @package    Core
+ * @copyright  Cliff Parnitzky 2013-2014
+ * @author     Cliff Parnitzky
+ * @package    BirthdayLister
  */
 class tl_module_BirthdayLister extends Backend
 {
