@@ -7,8 +7,8 @@ Provides a module to list member birthdays (past, actual, upcoming).
 Installation
 ------------
 
-The extension is not published in contao extension repository.
-Install it manually.
+The extension can be installed using the Contao extension manager in the Contao back end.
+Or, install it manually.
 
 
 Tracker

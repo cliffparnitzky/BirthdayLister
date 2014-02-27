@@ -16,8 +16,8 @@
  */
 ClassLoader::addClasses(array
 (
-	'ModuleBirthdayLister'      => 'system/modules/BirthdayLister/ModuleBirthdayLister.php',
-	'ModuleBirthdayListerHooks' => 'system/modules/BirthdayLister/ModuleBirthdayListerHooks.php',
+	'BirthdayListerHooks'  => 'system/modules/BirthdayLister/BirthdayListerHooks.php',
+	'ModuleBirthdayLister' => 'system/modules/BirthdayLister/ModuleBirthdayLister.php',
 ));
 
 

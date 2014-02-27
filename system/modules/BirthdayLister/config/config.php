@@ -35,8 +35,8 @@ $GLOBALS['FE_MOD']['miscellaneous']['birthdayLister'] = 'ModuleBirthdayLister';
 /**
  * Register hooks
  */
-$GLOBALS['TL_HOOKS']['birthdayListerModifyBirthdayChildren'][] = array('ModuleBirthdayListerHooks', 'sortBirthdayChildren'); 
-$GLOBALS['TL_HOOKS']['birthdayListerModifyBirthdayChildren'][] = array('ModuleBirthdayListerHooks', 'sortBirthdayChildrenInCustomPeriod'); 
-$GLOBALS['TL_HOOKS']['birthdayListerCheckBirthdayInPeriod'][]  = array('ModuleBirthdayListerHooks', 'isBirthdayChildListableInCustomPeriod'); 
+$GLOBALS['TL_HOOKS']['birthdayListerModifyBirthdayChildren'][] = array('BirthdayListerHooks', 'sortBirthdayChildren'); 
+$GLOBALS['TL_HOOKS']['birthdayListerModifyBirthdayChildren'][] = array('BirthdayListerHooks', 'sortBirthdayChildrenInCustomPeriod'); 
+$GLOBALS['TL_HOOKS']['birthdayListerCheckBirthdayInPeriod'][]  = array('BirthdayListerHooks', 'isBirthdayChildListableInCustomPeriod'); 
 
 ?>

@@ -28,14 +28,14 @@
  */
 
 /**
- * Class ModuleBirthdayListerHooks
+ * Class BirthdayListerHooks
  *
  * Hook implementation for module "birthdayLister".
  * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class ModuleBirthdayListerHooks
+class BirthdayListerHooks
 {
 	/**
 	 * Sort the birthday children by date of birth
@@ -77,22 +77,6 @@ class ModuleBirthdayListerHooks
 	}
 	
 	/**
-	 * Returns the age with leading zeros.
-	 */
-	private function getAgeWithLeadingZero($age)
-	{
-		if ($age < 10)
-		{
-			return "00" . $age;
-		}
-		else if ($age < 100)
-		{
-			return "0" . $age;
-		}
-		return $age;
-	}
-	
-	/**
 	 * Check if actual birthday is in period
 	 */
 	public function isBirthdayChildListableInCustomPeriod($birthdayInPeriod, $modulConfig, $birthday, $birthdayChild)
@@ -125,9 +109,25 @@ class ModuleBirthdayListerHooks
 	}
 	
 	/**
+	 * Returns the age with leading zeros.
+	 */
+	protected function getAgeWithLeadingZero($age)
+	{
+		if ($age < 10)
+		{
+			return "00" . $age;
+		}
+		else if ($age < 100)
+		{
+			return "0" . $age;
+		}
+		return $age;
+	}
+	
+	/**
 	 * Returns, depending on the unit the number of days to use for the period limits.
 	 */
-	private function getPeriodLimitDays ($periodValue)
+	protected function getPeriodLimitDays ($periodValue)
 	{
 		if ($periodValue['unit'] == 'week')
 		{
@@ -143,7 +143,7 @@ class ModuleBirthdayListerHooks
 	/**
 	 * Returns the day of year of the period start
 	 */
-	private function getStartDayOfYear($modulConfig)
+	protected function getStartDayOfYear($modulConfig)
 	{
 		return date('z') - intval($this->getPeriodLimitDays(deserialize($modulConfig->birthdayListPeriodCustomStart)));
 	}
@@ -151,7 +151,7 @@ class ModuleBirthdayListerHooks
 	/**
 	 * Returns the day of year of the period end
 	 */
-	private function getEndDayOfYear($modulConfig)
+	protected function getEndDayOfYear($modulConfig)
 	{
 		return date('z') + intval($this->getPeriodLimitDays(deserialize($modulConfig->birthdayListPeriodCustomEnd)));
 	}
