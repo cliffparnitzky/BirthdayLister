@@ -1,0 +1,38 @@
+{
+	"name":"cliffparnitzky/birthday-lister",
+	"description":"Provides a module to list member birthdays (past, actual, upcoming).",
+	"keywords":["contao", "birthday", "birthdaylist", "birthdaylisting"],
+	"type":"contao-module",
+	"license":"LGPL-3.0+",
+	"authors":[
+		{
+			"name":"Cliff Parnitzky",
+			"email":"contao@cliff-parnitzky.de",
+			"role":"Developer"
+		}
+	],
+	"support":{
+		"email":"contao@cliff-parnitzky.de",
+		"issues":"https://github.com/cliffparnitzky/BirthdayLister/issues",
+		"source":"https://github.com/cliffparnitzky/BirthdayLister"
+	},
+	"require":{
+		"php":">=5.3",
+		"contao/core":">=3.2.0,<3.4.0",
+		"contao-community-alliance/composer-installer":"*",
+		"contao-legacy/associategroups":">=1.2.1"
+	},
+	"replace": {
+		"contao-legacy/birthdaylister":"self.version"
+	},
+	"extra":{
+		"contao":{
+			"sources":{
+				"system/modules/BirthdayLister":"system/modules/BirthdayLister"
+			}
+		},
+		"branch-alias": {
+			"dev-master": "2.0.x-dev"
+		}
+	}
+}
