@@ -23,7 +23,7 @@
 		"contao-legacy/associategroups":">=1.2.1"
 	},
 	"replace": {
-		"contao-legacy/birthdaylister":"self.version"
+		"contao-legacy/birthdaylister":"*"
 	},
 	"extra":{
 		"contao":{
