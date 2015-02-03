@@ -1,3 +1,7 @@
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/birthday-lister.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-lister)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/birthday-lister.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-lister)
+[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/birthday-lister.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/birthday-lister)
+
 Contao Extension: BirthdayLister
 ================================
 
@@ -7,8 +11,9 @@ Provides a module to list member birthdays (past, actual, upcoming).
 Installation
 ------------
 
-The extension can be installed using the Contao extension manager in the Contao back end.
-Or, install it manually.
+Install the extension via composer: [cliffparnitzky/birthday-lister](https://packagist.org/packages/cliffparnitzky/birthday-lister).
+
+If you prefer to install it manually, download the latest release here: https://github.com/cliffparnitzky/BirthdayLister/releases
 
 
 Tracker
@@ -20,14 +25,14 @@ https://github.com/cliffparnitzky/BirthdayLister/issues
 Compatibility
 -------------
 
-- min. version: Contao 2.9.5
-- max. version: Contao 3.2.x
+- min. version: Contao 3.2.0
+- max. version: Contao 3.3.x
 
 
 Dependency
 ----------
 
-- This extension is dependent on the following extensions: [[associategroups]](http://contao.org/de/extension-list/view/associategroups.de.html)
+- This extension is dependent on the following extensions: [[contao-legacy/associategroups]](https://legacy-packages-via.contao-community-alliance.org/packages/contao-legacy/associategroups)
 
 
 Screenshots
