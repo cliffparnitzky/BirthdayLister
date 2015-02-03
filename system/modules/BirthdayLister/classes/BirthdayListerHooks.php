@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -10,28 +10,33 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    BirthdayLister
  * @license    LGPL
  */
 
 /**
+ * Run in a custom namespace, so the class can be replaced
+ */
+namespace BirthdayLister;
+
+/**
  * Class BirthdayListerHooks
  *
  * Hook implementation for module "birthdayLister".
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
@@ -68,7 +73,7 @@ class BirthdayListerHooks
 				$yearIncrement = (date("z", $birthdayChild['dateOfBirth']) < $startDayOfYear) ? 1 : 0;
 				$nextBirthday = mktime(0, 0, 0, date("m", $birthdayChild['dateOfBirth']), date("d", $birthdayChild['dateOfBirth']), date("Y") + $yearIncrement);
 				$arrBirthdayChildren[$key]['age'] = intval($birthdayChild['age'] + $yearIncrement);
-				$sort_col[$key] = date('Ymd', $nextBirthday) . $this->getAgeWithLeadingZero($birthdayChild['age']); 
+				$sort_col[$key] = date('Ymd', $nextBirthday) . $this->getAgeWithLeadingZero($birthdayChild['age']);
 			}
 			array_multisort($sort_col, SORT_ASC, $arrBirthdayChildren);
 		}

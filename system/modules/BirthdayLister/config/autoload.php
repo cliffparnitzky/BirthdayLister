@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2014 Leo Feyer
+ * Copyright (c) 2005-2015 Leo Feyer
  *
  * @package BirthdayLister
  * @link    https://contao.org
@@ -12,12 +12,24 @@
 
 
 /**
+ * Register the namespaces
+ */
+ClassLoader::addNamespaces(array
+(
+	'BirthdayLister',
+));
+
+
+/**
  * Register the classes
  */
 ClassLoader::addClasses(array
 (
-	'BirthdayListerHooks'  => 'system/modules/BirthdayLister/BirthdayListerHooks.php',
-	'ModuleBirthdayLister' => 'system/modules/BirthdayLister/ModuleBirthdayLister.php',
+	// Classes
+	'BirthdayLister\BirthdayListerHooks'  => 'system/modules/BirthdayLister/classes/BirthdayListerHooks.php',
+
+	// Modules
+	'BirthdayLister\ModuleBirthdayLister' => 'system/modules/BirthdayLister/modules/ModuleBirthdayLister.php',
 ));
 
 
@@ -26,5 +38,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mod_birthdaylister' => 'system/modules/BirthdayLister/templates',
+	'mod_birthdaylister' => 'system/modules/BirthdayLister/templates/modules',
 ));

@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    BirthdayLister
  * @license    LGPL
@@ -47,7 +47,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriod'] = array
 	                                   'month' => array('january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december')
 	                                  ),
 	'reference'               => &$GLOBALS['TL_LANG']['tl_module']['birthdayListPeriods'],
-	'eval'                    => array('mandatory'=>true, 'submitOnChange'=>true, 'includeBlankOption' => true, 'helpwizard' => true)
+	'eval'                    => array('mandatory'=>true, 'submitOnChange'=>true, 'includeBlankOption' => true, 'helpwizard' => true),
+	'sql'                     => "varchar(20) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomStart'] = array
@@ -57,7 +58,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomStart'] = arr
 	'inputType'               => 'inputUnit',
 	'options'                 => array('day', 'week', 'month'),
 	'reference'               => &$GLOBALS['TL_LANG']['tl_module']['timeunits'],
-	'eval'                    => array('mandatory'=>true, 'rgxp' => 'digit', 'tl_class'=>'clr w50', 'maxlength' => 2, 'helpwizard' => true)
+	'eval'                    => array('mandatory'=>true, 'rgxp' => 'digit', 'tl_class'=>'clr w50', 'maxlength' => 2, 'helpwizard' => true),
+	'sql'                     => "varchar(255) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomEnd'] = array
@@ -67,7 +69,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomEnd'] = array
 	'inputType'               => 'inputUnit',
 	'options'                 => array('day', 'week', 'month'),
 	'reference'               => &$GLOBALS['TL_LANG']['tl_module']['timeunits'],
-	'eval'                    => array('mandatory'=>true, 'rgxp' => 'digit', 'maxlength' => 2, 'helpwizard' => true)
+	'eval'                    => array('mandatory'=>true, 'rgxp' => 'digit', 'maxlength' => 2, 'helpwizard' => true),
+	'sql'                     => "varchar(255) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomCrossYearLimits'] = array
@@ -75,7 +78,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListPeriodCustomCrossYearLimi
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['birthdayListPeriodCustomCrossYearLimits'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'clr w50 m12')
+	'eval'                    => array('tl_class'=>'clr w50 m12'),
+	'sql'                     => "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListMemberGroups'] = array
@@ -84,7 +88,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListMemberGroups'] = array
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'foreignKey'              => 'tl_member_group.name',
-	'eval'                    => array('mandatory'=>true, 'multiple' => true, 'tl_class'=>'clr')
+	'eval'                    => array('mandatory'=>true, 'multiple' => true, 'tl_class'=>'clr'),
+	'sql'                     => "blob NOT NULL"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListDateFormat'] = array
@@ -92,7 +97,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListDateFormat'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['birthdayListDateFormat'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
-	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'maxlength' => 64)
+	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'maxlength' => 64),
+	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListShowInactiveMembers'] = array
@@ -100,7 +106,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListShowInactiveMembers'] = a
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['birthdayListShowInactiveMembers'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('tl_class'=>'w50 m12')
+	'eval'                    => array('tl_class'=>'w50 m12'),
+	'sql'                     => "char(1) NOT NULL default ''"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListTemplate'] = array
@@ -108,18 +115,19 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['birthdayListTemplate'] = array
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['birthdayListTemplate'],
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_BirthdayLister', 'getBirthdayListTemplates')
+	'options_callback'        => array('tl_module_BirthdayLister', 'getBirthdayListTemplates'),
+	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
 /**
  * Class tl_module_BirthdayLister
  *
  * Provide miscellaneous methods that are used by the data configuration array.
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    BirthdayLister
  */
-class tl_module_BirthdayLister extends Backend
+class tl_module_BirthdayLister extends \Backend
 {
 	/**
 	 * Return all birthday lister templates as array
