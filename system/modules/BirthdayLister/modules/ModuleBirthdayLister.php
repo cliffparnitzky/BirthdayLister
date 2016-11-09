@@ -178,7 +178,7 @@ class ModuleBirthdayLister extends \Module
 				foreach ($GLOBALS['TL_HOOKS']['birthdayListerModifyBirthdayChildren'] as $callback)
 				{
 					$this->import($callback[0]);
-					$birthdayChildren = $this->$callback[0]->$callback[1]($birthdayChildren, $this);
+					$birthdayChildren = $this->{$callback[0]}->{$callback[1]}($birthdayChildren, $this);
 				}
 			}
 			
@@ -223,7 +223,7 @@ class ModuleBirthdayLister extends \Module
 			foreach ($GLOBALS['TL_HOOKS']['birthdayListerCheckBirthdayInPeriod'] as $callback)
 			{
 				$this->import($callback[0]);
-				$listBirthdayChild = $this->$callback[0]->$callback[1]($listBirthdayChild, $this, $birthday, $objBirthdayChild);
+				$listBirthdayChild = $this->{$callback[0]}->{$callback[1]}($listBirthdayChild, $this, $birthday, $objBirthdayChild);
 			}
 		}
 		
