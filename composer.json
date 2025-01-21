@@ -1,37 +1,39 @@
 {
-	"name":"cliffparnitzky/birthday-lister",
-	"description":"Provides a module to list member birthdays (past, actual, upcoming).",
-	"keywords":["contao", "birthday", "birthdaylist", "birthdaylisting"],
-	"type":"contao-module",
-	"license":"LGPL-3.0+",
-	"authors":[
+	"name": "cliffparnitzky/birthday-lister",
+	"description": "Provides a module to list member birthdays (past, actual, upcoming).",
+	"keywords": [
+		"contao",
+		"birthday",
+		"birthdaylist",
+		"birthdaylisting"
+	],
+	"type": "contao-module",
+	"license": "LGPL-3.0+",
+	"authors": [
 		{
-			"name":"Cliff Parnitzky",
-			"email":"contao@cliff-parnitzky.de",
-			"role":"Developer"
+			"name": "Cliff Parnitzky",
+			"email": "contao@cliff-parnitzky.de",
+			"role": "Developer"
 		}
 	],
-	"support":{
-		"email":"contao@cliff-parnitzky.de",
-		"issues":"https://github.com/cliffparnitzky/BirthdayLister/issues",
-		"source":"https://github.com/cliffparnitzky/BirthdayLister"
+	"support": {
+		"email": "contao@cliff-parnitzky.de",
+		"issues": "https://github.com/cliffparnitzky/BirthdayLister/issues",
+		"source": "https://github.com/cliffparnitzky/BirthdayLister"
 	},
-	"require":{
-		"php":">=5.3",
-		"contao/core":">=3.2.0,<3.6",
-		"contao-community-alliance/composer-plugin":"~2.0",
-		"friends-of-contao/contao-associategroups":"~1.3"
-	},
-	"conflict": {
-		"contao/core":"3.4.0,3.4.1,3.4.2"
+	"require": {
+		"php": ">=5.3",
+		"contao/core": ">=3.2.0,<3.6",
+		"contao-community-alliance/composer-plugin": "~2.0",
+		"friends-of-contao/contao-associategroups": "~1.3"
 	},
 	"replace": {
-		"contao-legacy/birthdaylister":"*"
+		"contao-legacy/birthdaylister": "*"
 	},
-	"extra":{
-		"contao":{
-			"sources":{
-				"system/modules/BirthdayLister":"system/modules/BirthdayLister"
+	"extra": {
+		"contao": {
+			"sources": {
+				"system/modules/BirthdayLister": "system/modules/BirthdayLister"
 			}
 		},
 		"branch-alias": {
